@@ -4,6 +4,7 @@ class Person:
 		self.posts = posts
 		self.numWords = 0
 		self.numLines = 0
+		self.mass = ""
 
 	def getName(self):
 		return self.name
@@ -21,6 +22,10 @@ class Person:
 		self.numWords += newLine[1]
 		self.posts.append(newLine[2])
 		self.numLines += 1
+		self.mass += (newLine[2] + " ").lower()
+
+	def getMass(self):
+		return self.mass
 
 
 
