@@ -1,7 +1,10 @@
 import os
+import Person as ps
 
 #NOTES
 #lineStruct will be that of list. First element is the name. Second element is number of words written, third element is the line.
+
+persons = {}
 
 def getPosts(fileName):
 	chatFile = open(fileName, 'r')
@@ -10,11 +13,19 @@ def getPosts(fileName):
 	for i in line:
 		lineInfo = extractLine(i)
 
-			
+		if lineInfo != []:
+			personsLine(lineInfo)
 
 
 	chatFile.close()
-	return
+
+	# for i in persons:
+	# 	print persons[i].getName()
+	# 	print persons[i].getNumLines()
+	# 	print persons[i].getNumWords()
+	# 	print persons[i].getPosts()
+	# 	print "\n\n\n"
+	return persons
 
 def extractLine(line):
 	lineStruct = ["", 0, ""]
@@ -44,3 +55,27 @@ def extractLine(line):
 make a dictionary of people
 assign people to classes
 '''
+
+def personsLine(lineInfo):
+	if lineInfo[0] not in persons:
+		friend = ps.Person(lineInfo[0], [])
+		persons[lineInfo[0]] = friend
+
+	persons[lineInfo[0]].addLine(lineInfo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
